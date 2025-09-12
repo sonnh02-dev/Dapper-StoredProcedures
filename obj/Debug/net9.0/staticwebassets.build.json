@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "9J1ghXAvzF6VxWMHJAwslZ8oNnW7OsbqVtPl1sBsbBg=",
+  "Source": "Dapper_StoredProcedures",
+  "BasePath": "_content/Dapper_StoredProcedures",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
