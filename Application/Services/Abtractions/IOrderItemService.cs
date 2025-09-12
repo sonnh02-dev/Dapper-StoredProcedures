@@ -1,6 +1,6 @@
 ﻿using Dapper_StoredProcedures.Domain.Entities;
 
-namespace Dapper_StoredProcedures.Application.Services.Abtractions.Abtractions
+namespace Dapper_StoredProcedures.Application.Services.Abtractions
 {
     public interface IOrderItemService
     {

@@ -1,6 +1,5 @@
 ﻿using Dapper_StoredProcedures.Application.Services;
 using Dapper_StoredProcedures.Application.Services.Abtractions;
-using Dapper_StoredProcedures.Application.Services.Abtractions.Abtractions;
 using Dapper_StoredProcedures.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;

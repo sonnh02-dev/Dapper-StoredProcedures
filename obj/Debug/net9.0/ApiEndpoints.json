@@ -1,0 +1,133 @@
+[
+  {
+    "ContainingType": "Dapper_StoredProcedures.Controllers.CustomerController",
+    "Method": "CreateCustomer",
+    "RelativePath": "api/Customer/customer",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customer",
+        "Type": "Dapper_StoredProcedures.Domain.Entities.Customer",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dapper_StoredProcedures.Controllers.OrdersController",
+    "Method": "CreateOrder",
+    "RelativePath": "api/Orders",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "order",
+        "Type": "Dapper_StoredProcedures.Domain.Entities.Order",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dapper_StoredProcedures.Controllers.OrdersController",
+    "Method": "CreateOrderItem",
+    "RelativePath": "api/Orders/item",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "item",
+        "Type": "Dapper_StoredProcedures.Domain.Entities.OrderItem",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dapper_StoredProcedures.Controllers.OrdersController",
+    "Method": "GetOrderItems",
+    "RelativePath": "api/Orders/item/{orderId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dapper_StoredProcedures.Controllers.OrdersController",
+    "Method": "GetOrdersWithCustomer",
+    "RelativePath": "api/Orders/with-customer",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dapper_StoredProcedures.Controllers.ProductsController",
+    "Method": "CreateProduct",
+    "RelativePath": "api/Products/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "product",
+        "Type": "Dapper_StoredProcedures.Application.DTOs.Requests.CreateProductRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dapper_StoredProcedures.Controllers.ProductsController",
+    "Method": "GetProductSummaries",
+    "RelativePath": "api/Products/summaries",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "categoryId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "sku",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortBy",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortDirection",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dapper_StoredProcedures.Controllers.ProductsController",
+    "Method": "GetProductsWithCategory",
+    "RelativePath": "api/Products/with-category",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

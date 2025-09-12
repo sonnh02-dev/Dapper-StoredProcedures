@@ -1,4 +1,4 @@
-﻿using Dapper_StoredProcedures.Application.DTOs;
+﻿using Dapper_StoredProcedures.Application.DTOs.Responses;
 using Dapper_StoredProcedures.Application.Services.Abtractions;
 using Dapper_StoredProcedures.Domain.Entities;
 using Dapper_StoredProcedures.Domain.IRepositories;

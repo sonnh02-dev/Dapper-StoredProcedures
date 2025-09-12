@@ -27,6 +27,9 @@ public class ApplicationDbContext : DbContext
             .HasForeignKey(p => p.CategoryId);
 
         modelBuilder.Entity<Product>()
+            .HasIndex(p => p.SKU).IsUnique();
+
+        modelBuilder.Entity<Product>()
           .Property(p => p.Price)
           .HasPrecision(18, 2);
 
@@ -46,7 +49,7 @@ public class ApplicationDbContext : DbContext
 
         modelBuilder.Entity<OrderItem>()
             .HasKey(oi => new { oi.OrderId, oi.ProductId });
-      
+
         modelBuilder.Entity<OrderItem>()
             .HasOne<Order>()
             .WithMany()
@@ -73,12 +76,13 @@ public class ApplicationDbContext : DbContext
         );
 
         modelBuilder.Entity<Product>().HasData(
-            new Product { Id = 1, Name = "Laptop", Price = 1000, Quantity = 10, CategoryId = 1 },
-            new Product { Id = 2, Name = "Smartphone", Price = 500, Quantity = 20, CategoryId = 1 },
-            new Product { Id = 3, Name = "Novel", Price = 20, Quantity = 50, CategoryId = 2 },
-            new Product { Id = 4, Name = "T-Shirt", Price = 15, Quantity = 100, CategoryId = 3 },
-            new Product { Id = 5, Name = "Basketball", Price = 30, Quantity = 25, CategoryId = 5 }
-        );
+           new Product { Id = 1, SKU = "LAP-001", Name = "Laptop", Price = 1000, Quantity = 10, CategoryId = 1 },
+           new Product { Id = 2, SKU = "SMP-001", Name = "Smartphone", Price = 500, Quantity = 20, CategoryId = 1 },
+           new Product { Id = 3, SKU = "BOK-001", Name = "Novel", Price = 20, Quantity = 50, CategoryId = 2 },
+           new Product { Id = 4, SKU = "CLT-001", Name = "T-Shirt", Price = 15, Quantity = 100, CategoryId = 3 },
+           new Product { Id = 5, SKU = "SPT-001", Name = "Basketball", Price = 30, Quantity = 25, CategoryId = 5 }
+       );
+
 
         modelBuilder.Entity<Customer>().HasData(
             new Customer { Id = 1, Name = "Alice", Email = "alice@example.com" },

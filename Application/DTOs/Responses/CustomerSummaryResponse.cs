@@ -1,4 +1,4 @@
-﻿namespace Dapper_StoredProcedures.Application.DTOs
+﻿namespace Dapper_StoredProcedures.Application.DTOs.Responses
 {
     public class CustomerSummaryResponse
     {

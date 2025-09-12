@@ -1,6 +1,6 @@
+using Dapper_StoredProcedures.Application.DTOs.Requests;
 using Dapper_StoredProcedures.Application.Services;
 using Dapper_StoredProcedures.Application.Services.Abtractions;
-using Dapper_StoredProcedures.Application.Services.Abtractions.Abtractions;
 using Dapper_StoredProcedures.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -18,15 +18,25 @@ namespace Dapper_StoredProcedures.Controllers
             _productService = productService;
         }
 
-        [HttpGet("category-sold")]
-        public async Task<IActionResult> GetWithCategorySold()
+        [HttpGet("summaries")]
+        public async Task<IActionResult> GetProductSummaries(
+              [FromQuery] int? categoryId = null,
+             [FromQuery] string? sku = null,
+             [FromQuery] string sortBy = "SoldDisplay",
+             [FromQuery] string sortDirection = "DESC")
         {
-            var products = await _productService.GetProductsWithCategoryAndSold();
+            var products = await _productService.GetProductSummaries(
+                categoryId,
+                sku,
+                sortBy,
+                sortDirection
+            );
             return Ok(products);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create(Product product)
+
+        [HttpPost("create")]
+        public async Task<IActionResult> CreateProduct(CreateProductRequest product)
         {
             try
             {
@@ -37,6 +47,12 @@ namespace Dapper_StoredProcedures.Controllers
             {
                 return Conflict(ex.Message);
             }
+        }
+        [HttpGet("with-category")]
+        public async Task<IActionResult> GetProductsWithCategory()
+        {
+            var result = await _productService.GetProductsWithCategory();
+            return Ok(result);
         }
     }
 }

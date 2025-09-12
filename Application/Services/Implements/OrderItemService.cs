@@ -3,7 +3,6 @@ using Dapper_StoredProcedures.Domain.IRepositories;
 using Dapper_StoredProcedures.Application.Services.Abtractions;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Dapper_StoredProcedures.Application.Services.Abtractions.Abtractions;
 
 namespace Dapper_StoredProcedures.Application.Services.Implements
 {

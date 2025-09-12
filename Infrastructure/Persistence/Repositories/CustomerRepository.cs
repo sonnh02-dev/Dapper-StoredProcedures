@@ -1,5 +1,5 @@
 ﻿using Dapper;
-using Dapper_StoredProcedures.Application.DTOs;
+using Dapper_StoredProcedures.Application.DTOs.Responses;
 using Dapper_StoredProcedures.Domain.Entities;
 using Dapper_StoredProcedures.Domain.IRepositories;
 using Dapper_StoredProcedures.Infrastructure.Persistence;
