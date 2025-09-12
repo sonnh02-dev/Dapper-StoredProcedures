@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Dapper_StoredProcedures")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5af2dd6fa49b6b785f98e4ad032159798b3fecf5")]
 [assembly: System.Reflection.AssemblyProductAttribute("Dapper_StoredProcedures")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Dapper_StoredProcedures")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

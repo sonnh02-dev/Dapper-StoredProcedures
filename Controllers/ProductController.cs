@@ -1,38 +1,42 @@
-using Dapper_StoredProcedures.Entities;
-using Dapper_StoredProcedures.Persistence.Repositories;
+using Dapper_StoredProcedures.Application.Services;
+using Dapper_StoredProcedures.Application.Services.Abtractions;
+using Dapper_StoredProcedures.Application.Services.Abtractions.Abtractions;
+using Dapper_StoredProcedures.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
-namespace Dapper_StoredProcedures.Controllers;
-
-[ApiController]
-[Route("api/[controller]")]
-public class ProductsController : ControllerBase
+namespace Dapper_StoredProcedures.Controllers
 {
-    private readonly ProductRepository _repository;
-
-    public ProductsController(ProductRepository repository)
+    [ApiController]
+    [Route("api/[controller]")]
+    public class ProductsController : ControllerBase
     {
-        _repository = repository;
-    }
+        private readonly IProductService _productService;
 
-    [HttpGet("with-category")]
-    public async Task<IActionResult> GetWithCategory()
-    {
-        var products = await _repository.GetProductsWithCategoryAsync();
-        return Ok(products);
-    }
+        public ProductsController(IProductService productService)
+        {
+            _productService = productService;
+        }
 
-    [HttpPost("category")]
-    public async Task<IActionResult> CreateCategory(Category category)
-    {
-        var newId = await _repository.InsertCategoryAsync(category);
-        return Ok(new { Id = newId });
-    }
+        [HttpGet("category-sold")]
+        public async Task<IActionResult> GetWithCategorySold()
+        {
+            var products = await _productService.GetProductsWithCategoryAndSold();
+            return Ok(products);
+        }
 
-    [HttpPost]
-    public async Task<IActionResult> Create(Product product)
-    {
-        var newId = await _repository.InsertProductAsync(product);
-        return Ok(new { Id = newId });
+        [HttpPost]
+        public async Task<IActionResult> Create(Product product)
+        {
+            try
+            {
+                var id = await _productService.CreateProduct(product);
+                return Ok(new { Id = id });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return Conflict(ex.Message);
+            }
+        }
     }
 }

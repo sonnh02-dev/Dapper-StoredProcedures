@@ -1,4 +1,4 @@
-﻿namespace Dapper_StoredProcedures.Entities
+﻿namespace Dapper_StoredProcedures.Domain.Entities
 {
     public class Product
     {
@@ -8,6 +8,5 @@
         public int Quantity { get; set; }
 
         public int CategoryId { get; set; }
-        public Category Category { get; set; } = null!;
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Dapper_StoredProcedures.Entities
+﻿namespace Dapper_StoredProcedures.Domain.Entities
 {
     public class Customer
     {

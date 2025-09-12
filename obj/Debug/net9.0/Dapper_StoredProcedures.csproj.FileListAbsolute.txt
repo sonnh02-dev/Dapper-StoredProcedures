@@ -1,3 +1,11 @@
+C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\Dapper_StoredProcedures.csproj.AssemblyReference.cache
+C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\Dapper_StoredProcedures.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\Dapper_StoredProcedures.AssemblyInfoInputs.cache
+C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\Dapper_StoredProcedures.AssemblyInfo.cs
+C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\Dapper_StoredProcedures.csproj.CoreCompileInputs.cache
+C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\Dapper_StoredProcedures.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\Dapper_StoredProcedures.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\Dapper_StoredProcedures.sourcelink.json
 C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\bin\Debug\net9.0\appsettings.json
 C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\bin\Debug\net9.0\Dapper_StoredProcedures.staticwebassets.endpoints.json
@@ -150,13 +158,6 @@ C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\bin\Debug\net9.0\runtime
 C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\bin\Debug\net9.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\bin\Debug\net9.0\runtimes\win\lib\net9.0\System.Diagnostics.EventLog.dll
 C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\bin\Debug\net9.0\runtimes\win\lib\net9.0\System.Security.Cryptography.Pkcs.dll
-C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\Dapper_StoredProcedures.csproj.AssemblyReference.cache
-C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\Dapper_StoredProcedures.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\Dapper_StoredProcedures.AssemblyInfoInputs.cache
-C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\Dapper_StoredProcedures.AssemblyInfo.cs
-C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\Dapper_StoredProcedures.csproj.CoreCompileInputs.cache
-C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\Dapper_StoredProcedures.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\Dapper_StoredProcedures.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\scopedcss\bundle\Dapper_StoredProcedures.styles.css
 C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\staticwebassets.development.json

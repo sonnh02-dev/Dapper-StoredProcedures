@@ -1,6 +1,6 @@
-﻿using Dapper_StoredProcedures.Entities;
-using Dapper_StoredProcedures.Persistence;
-using Dapper_StoredProcedures.Persistence.Repositories;
+﻿using Dapper_StoredProcedures.Application.Services.Abtractions;
+using Dapper_StoredProcedures.Domain.Entities;
+using Dapper_StoredProcedures.Infrastructure.Persistence.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Dapper_StoredProcedures.Controllers
@@ -9,17 +9,17 @@ namespace Dapper_StoredProcedures.Controllers
     [Route("api/[controller]")]
     public class CustomerController : ControllerBase
     {
-        private readonly OrderRepository _orderRepo;
+        private readonly ICustomerService _customerService;
 
-        public CustomerController(OrderRepository orderRepo)
+        public CustomerController(ICustomerService customerService)
         {
-            _orderRepo = orderRepo;
+            _customerService = customerService;
         }
 
-        [HttpPost]
+        [HttpPost("customer")]
         public async Task<IActionResult> CreateCustomer(Customer customer)
         {
-            var id = await _orderRepo.InsertCustomerAsync(customer);
+            var id = await _customerService.CreateCustomer(customer);
             return Ok(new { Id = id });
         }
     }

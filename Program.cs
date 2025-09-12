@@ -1,5 +1,5 @@
-using Dapper_StoredProcedures.Persistence;
-using Dapper_StoredProcedures.Persistence.Repositories;
+using Dapper_StoredProcedures.Infrastructure.Persistence;
+using Dapper_StoredProcedures.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 

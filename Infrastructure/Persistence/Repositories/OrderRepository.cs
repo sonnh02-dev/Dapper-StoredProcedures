@@ -1,10 +1,11 @@
-﻿using Dapper_StoredProcedures.Entities;
-using Dapper;
+﻿using Dapper;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Data;
+using Dapper_StoredProcedures.Domain.Entities;
+using Dapper_StoredProcedures.Infrastructure.Persistence;
 
-namespace Dapper_StoredProcedures.Persistence.Repositories
+namespace Dapper_StoredProcedures.Infrastructure.Persistence.Repositories
 {
     public class OrderRepository
     {

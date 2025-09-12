@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using Microsoft.Data.SqlClient;
 
-namespace Dapper_StoredProcedures.Persistence
+namespace Dapper_StoredProcedures.Infrastructure.Persistence
 {
     public class DbConnectionFactory
     {
