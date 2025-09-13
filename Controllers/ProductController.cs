@@ -18,24 +18,28 @@ namespace Dapper_StoredProcedures.Controllers
             _productService = productService;
         }
 
-        [HttpGet("summaries")]
-        public async Task<IActionResult> GetProductSummaries(
+        [HttpGet("filter-sort")]
+        public async Task<IActionResult> GetProductsByFilterAndSort(
               [FromQuery] int? categoryId = null,
              [FromQuery] string? sku = null,
              [FromQuery] string sortBy = "SoldDisplay",
-             [FromQuery] string sortDirection = "DESC")
+             [FromQuery] string sortDirection = "DESC",
+              [FromQuery] int pageIndex = 1,
+             [FromQuery] int pageSize = 10)
         {
-            var products = await _productService.GetProductSummaries(
+            var products = await _productService.GetProductsByFilterAndSort(
                 categoryId,
                 sku,
                 sortBy,
-                sortDirection
+                sortDirection,
+                pageIndex,
+                pageSize
             );
             return Ok(products);
         }
 
 
-        [HttpPost("create")]
+        [HttpPost]
         public async Task<IActionResult> CreateProduct(CreateProductRequest product)
         {
             try

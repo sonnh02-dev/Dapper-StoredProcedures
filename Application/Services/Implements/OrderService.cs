@@ -22,11 +22,23 @@ namespace Dapper_StoredProcedures.Application.Services.Implements
             return _orderRepository.InsertOrder(order);
         }
 
-        public Task<IEnumerable<Order>> GetOrdersWithCustomer()
+        public async Task<IEnumerable<Order>> GetOrdersByFilterAndSort(
+          string? paymentStatus,
+          string? sortBy,
+          string? sortDirection,
+          string? productName,
+          int? customerId
+      )
         {
-            return _orderRepository.GetOrdersWithCustomer();
+            return await _orderRepository.GetOrdersByFilterAndSort(
+                paymentStatus,
+                sortBy,
+                sortDirection,
+                productName,
+                customerId
+            );
         }
 
-     
+
     }
 }

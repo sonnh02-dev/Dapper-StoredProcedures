@@ -3,50 +3,60 @@ using Dapper_StoredProcedures.Application.Services.Abtractions;
 using Dapper_StoredProcedures.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+namespace Dapper_StoredProcedures.Controllers;
 
-namespace Dapper_StoredProcedures.Controllers
+[ApiController]
+[Route("api/[controller]")]
+public class OrdersController : ControllerBase
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class OrdersController : ControllerBase
+    private readonly IOrderService _orderService;
+    private readonly IOrderItemService _orderItemService;
+
+    public OrdersController(IOrderService orderService, IOrderItemService orderItemService)
     {
-        private readonly IOrderService _orderService;
-        private readonly IOrderItemService _orderItemService;
+        _orderService = orderService;
+        _orderItemService = orderItemService;
+    }
 
-        public OrdersController(IOrderService orderService, IOrderItemService orderItemService)
-        {
-            _orderService = orderService;
-            _orderItemService = orderItemService;
-        }
+    [HttpPost]
+    public async Task<IActionResult> CreateOrder(Order order)
+    {
+        var id = await _orderService.CreateOrder(order);
+        return CreatedAtAction(nameof(GetOrderItems), new { orderId = id }, new { Id = id });
+    }
 
-       
+    [HttpPost("{orderId}/items")]
+    public async Task<IActionResult> CreateOrderItem(int orderId, OrderItem item)
+    {
+        item.OrderId = orderId; 
+        var rows = await _orderItemService.CreateOrderItem(item);
+        return Ok(new { RowsAffected = rows });
+    }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateOrder(Order order)
-        {
-            var id = await _orderService.CreateOrder(order);
-            return Ok(new { Id = id });
-        }
+    [HttpGet("by-filter-sort")]
+    public async Task<IActionResult> GetOrdersByFilterAndSort(
+        [FromQuery] string? paymentStatus,
+        [FromQuery] string? sortBy = "OrderDate",
+        [FromQuery] string? sortDirection = "DESC",
+        [FromQuery] string? productName = null,
+        [FromQuery] int? customerId = null
+    )
+    {
+        var orders = await _orderService.GetOrdersByFilterAndSort(
+            paymentStatus,
+            sortBy,
+            sortDirection,
+            productName,
+            customerId
+        );
 
-        [HttpPost("item")]
-        public async Task<IActionResult> CreateOrderItem(OrderItem item)
-        {
-            var rows = await _orderItemService.CreateOrderItem(item);
-            return Ok(new { RowsAffected = rows });
-        }
+        return Ok(orders);
+    }
 
-        [HttpGet("with-customer")]
-        public async Task<IActionResult> GetOrdersWithCustomer()
-        {
-            var orders = await _orderService.GetOrdersWithCustomer();
-            return Ok(orders);
-        }
-
-        [HttpGet("item/{orderId}")]
-        public async Task<IActionResult> GetOrderItems(int orderId)
-        {
-            var items = await _orderItemService.GetOrderItemsWithProduct(orderId);
-            return Ok(items);
-        }
+    [HttpGet("{orderId}/items")]
+    public async Task<IActionResult> GetOrderItems(int orderId)
+    {
+        var items = await _orderItemService.GetOrderItemsWithProduct(orderId);
+        return Ok(items);
     }
 }

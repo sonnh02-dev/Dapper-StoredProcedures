@@ -18,7 +18,7 @@ namespace Dapper_StoredProcedures.Infrastructure.Persistence.Repositories
         }
 
 
-        // Insert Order
+        //Raw query
         public async Task<int> InsertOrder(Order order)
         {
             var sql = @"INSERT INTO Orders (CustomerId, OrderDate, TotalAmount) 
@@ -28,14 +28,28 @@ namespace Dapper_StoredProcedures.Infrastructure.Persistence.Repositories
             return await conn.ExecuteScalarAsync<int>(sql, order);
         }
 
-    
+
 
         // Stored Procedure 
-        public async Task<IEnumerable<Order>> GetOrdersWithCustomer()
+        public async Task<IEnumerable<Order>> GetOrdersByFilterAndSort(
+          string? paymentStatus,
+          string? sortBy,
+          string? sortDirection,
+          string? productName,
+          int? customerId
+      )
         {
             using var conn = _dbFactory.OpenConnection();
             return await conn.QueryAsync<Order>(
                 "sp_GetOrdersWithCustomer",
+                new
+                {
+                    PaymentStatus = paymentStatus,
+                    SortBy = sortBy,
+                    SortDirection = sortDirection,
+                    ProductName = productName,
+                    CustomerId = customerId
+                },
                 commandType: CommandType.StoredProcedure
             );
         }

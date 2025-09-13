@@ -2,7 +2,7 @@
   {
     "ContainingType": "Dapper_StoredProcedures.Controllers.CustomerController",
     "Method": "CreateCustomer",
-    "RelativePath": "api/Customer/customer",
+    "RelativePath": "api/Customer",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -13,6 +13,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dapper_StoredProcedures.Controllers.CustomerController",
+    "Method": "GetCustomersStats",
+    "RelativePath": "api/Customer/stats",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -34,11 +44,16 @@
   {
     "ContainingType": "Dapper_StoredProcedures.Controllers.OrdersController",
     "Method": "CreateOrderItem",
-    "RelativePath": "api/Orders/item",
+    "RelativePath": "api/Orders/{orderId}/items",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
       {
         "Name": "item",
         "Type": "Dapper_StoredProcedures.Domain.Entities.OrderItem",
@@ -50,7 +65,7 @@
   {
     "ContainingType": "Dapper_StoredProcedures.Controllers.OrdersController",
     "Method": "GetOrderItems",
-    "RelativePath": "api/Orders/item/{orderId}",
+    "RelativePath": "api/Orders/{orderId}/items",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -65,18 +80,44 @@
   },
   {
     "ContainingType": "Dapper_StoredProcedures.Controllers.OrdersController",
-    "Method": "GetOrdersWithCustomer",
-    "RelativePath": "api/Orders/with-customer",
+    "Method": "GetOrdersByFilterAndSort",
+    "RelativePath": "api/Orders/by-filter-sort",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "paymentStatus",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortBy",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortDirection",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "productName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "customerId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
     "ContainingType": "Dapper_StoredProcedures.Controllers.ProductsController",
     "Method": "CreateProduct",
-    "RelativePath": "api/Products/create",
+    "RelativePath": "api/Products",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -91,8 +132,8 @@
   },
   {
     "ContainingType": "Dapper_StoredProcedures.Controllers.ProductsController",
-    "Method": "GetProductSummaries",
-    "RelativePath": "api/Products/summaries",
+    "Method": "GetProductsByFilterAndSort",
+    "RelativePath": "api/Products/filter-sort",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -115,6 +156,16 @@
       {
         "Name": "sortDirection",
         "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageIndex",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
         "IsRequired": false
       }
     ],

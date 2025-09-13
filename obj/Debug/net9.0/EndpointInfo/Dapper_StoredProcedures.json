@@ -5,7 +5,7 @@
     "version": "v1"
   },
   "paths": {
-    "/api/Customer/customer": {
+    "/api/Customer": {
       "post": {
         "tags": [
           "Customer"
@@ -29,6 +29,18 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Customer/stats": {
+      "get": {
+        "tags": [
+          "Customer"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -67,10 +79,21 @@
         }
       }
     },
-    "/api/Orders/item": {
+    "/api/Orders/{orderId}/items": {
       "post": {
         "tags": [
           "Orders"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "requestBody": {
           "content": {
@@ -96,21 +119,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/Orders/with-customer": {
-      "get": {
-        "tags": [
-          "Orders"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Orders/item/{orderId}": {
+      },
       "get": {
         "tags": [
           "Orders"
@@ -133,7 +142,59 @@
         }
       }
     },
-    "/api/Products/summaries": {
+    "/api/Orders/by-filter-sort": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "parameters": [
+          {
+            "name": "paymentStatus",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "OrderDate"
+            }
+          },
+          {
+            "name": "sortDirection",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "DESC"
+            }
+          },
+          {
+            "name": "productName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "customerId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Products/filter-sort": {
       "get": {
         "tags": [
           "Products"
@@ -169,6 +230,24 @@
               "type": "string",
               "default": "DESC"
             }
+          },
+          {
+            "name": "pageIndex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
           }
         ],
         "responses": {
@@ -178,7 +257,7 @@
         }
       }
     },
-    "/api/Products/create": {
+    "/api/Products": {
       "post": {
         "tags": [
           "Products"

@@ -10,11 +10,13 @@ namespace Dapper_StoredProcedures.Domain.IRepositories
     {
         Task<int> InsertProduct(CreateProductRequest  product);
         Task<bool> IsProductNameExists(string name);
-        Task<IEnumerable<ProductSummaryResponse>> GetProductSummaries(
+        Task<IEnumerable<ProductStatsResponse>> GetProductsByFilterAndSort(
              int? categoryId = null,
              string? sku = null,
              string sortBy = "SoldDisplay",
-             string sortDirection = "DESC");
+             string sortDirection = "DESC",
+             int pageIndex = 1,
+              int pageSize = 10);
         Task<IEnumerable<Product>> GetProductsWithCategory();
 
     }

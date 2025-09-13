@@ -30,13 +30,15 @@ namespace Dapper_StoredProcedures.Application.Services.Implements
 
 
 
-        public Task<IEnumerable<ProductSummaryResponse>> GetProductSummaries(
+        public Task<IEnumerable<ProductStatsResponse>> GetProductsByFilterAndSort(
          int? categoryId = null,
          string? sku = null,
          string sortBy = "SoldDisplay",
-         string sortDirection = "DESC")
+         string sortDirection = "DESC",
+          int pageIndex = 1,
+         int pageSize = 10)
         {
-            return _productRepository.GetProductSummaries(
+            return _productRepository.GetProductsByFilterAndSort(
                 categoryId,
                 sku,
                 sortBy,

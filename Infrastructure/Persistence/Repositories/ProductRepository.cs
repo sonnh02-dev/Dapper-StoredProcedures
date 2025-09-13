@@ -55,11 +55,13 @@ namespace Dapper_StoredProcedures.Infrastructure.Persistence.Repositories
 
 
 
-        public async Task<IEnumerable<ProductSummaryResponse>> GetProductSummaries(
+        public async Task<IEnumerable<ProductStatsResponse>> GetProductsByFilterAndSort(
          int? categoryId = null,
          string? sku = null,
          string sortBy = "SoldDisplay",
-         string sortDirection = "DESC")
+         string sortDirection = "DESC",
+         int pageIndex=1,
+         int pageSize=10)
         {
             using var conn = _dbFactory.OpenConnection();
 
@@ -68,9 +70,11 @@ namespace Dapper_StoredProcedures.Infrastructure.Persistence.Repositories
             parameters.Add("@SKU", sku);
             parameters.Add("@SortBy", sortBy);
             parameters.Add("@SortDirection", sortDirection);
+            parameters.Add("@PageIndex", pageIndex);
+            parameters.Add("@PageSize", pageSize);
 
-            var result = await conn.QueryAsync<ProductSummaryResponse>(
-                "sp_GetProductSummaries",
+            var result = await conn.QueryAsync<ProductStatsResponse>(
+                "sp_GetProductsByFilterAndSort",
                 parameters,
                 commandType: CommandType.StoredProcedure
             );

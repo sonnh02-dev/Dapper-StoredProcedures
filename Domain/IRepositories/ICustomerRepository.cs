@@ -9,6 +9,6 @@ namespace Dapper_StoredProcedures.Domain.IRepositories
     {
         Task<int> InsertCustomer(Customer customer);
         Task<bool> IsCustomerExists(string name);
-        Task<IEnumerable<CustomerSummaryResponse>> GetCustomerSummaries();
+        Task<IEnumerable<CustomerStatsResponse>> GetCustomersStats();
     }
 }

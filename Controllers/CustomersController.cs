@@ -16,11 +16,17 @@ namespace Dapper_StoredProcedures.Controllers
             _customerService = customerService;
         }
 
-        [HttpPost("customer")]
+        [HttpPost]
         public async Task<IActionResult> CreateCustomer(Customer customer)
         {
             var id = await _customerService.CreateCustomer(customer);
             return Ok(new { Id = id });
+        } 
+        [HttpGet("stats")]
+        public async Task<IActionResult> GetCustomersStats()
+        {
+            var cusStats = await _customerService.GetCustomersStats();
+            return Ok(cusStats);
         }
     }
 }

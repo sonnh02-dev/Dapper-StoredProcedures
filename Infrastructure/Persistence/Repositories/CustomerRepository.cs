@@ -37,11 +37,11 @@ namespace Dapper_StoredProcedures.Infrastructure.Persistence.Repositories
             return await conn.ExecuteScalarAsync<bool>(sql, new { Name = name });
         }
 
-        public async Task<IEnumerable<CustomerSummaryResponse>> GetCustomerSummaries()
+        public async Task<IEnumerable<CustomerStatsResponse>> GetCustomersStats()
         {
             using var conn = _dbFactory.OpenConnection();
-            return await conn.QueryAsync<CustomerSummaryResponse>(
-                "sp_GetCustomerSummaries",
+            return await conn.QueryAsync<CustomerStatsResponse>(
+                "sp_GetCustomersStats",
                 commandType: System.Data.CommandType.StoredProcedure
             );
         }

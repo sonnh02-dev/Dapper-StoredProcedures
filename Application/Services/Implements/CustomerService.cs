@@ -30,9 +30,9 @@ namespace Dapper_StoredProcedures.Application.Services.Implements
 
 
 
-        public Task<IEnumerable<CustomerSummaryResponse>> GetCustomerSummaries()
+        public Task<IEnumerable<CustomerStatsResponse>> GetCustomersStats()
         {
-            return _customerRepository.GetCustomerSummaries();
+            return _customerRepository.GetCustomersStats();
         }
     }
 }

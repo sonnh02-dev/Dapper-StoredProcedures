@@ -1,5 +1,4 @@
-C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\bin\Debug\net9.0\Infrastructure\Persistence\Scripts\appsettings.Development.json
-C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\bin\Debug\net9.0\Infrastructure\Persistence\Scripts\appsettings.json
+C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\bin\Debug\net9.0\appsettings.json
 C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\bin\Debug\net9.0\Dapper_StoredProcedures.staticwebassets.endpoints.json
 C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\bin\Debug\net9.0\Dapper_StoredProcedures.exe
 C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\bin\Debug\net9.0\Dapper_StoredProcedures.deps.json
@@ -175,4 +174,3 @@ C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\refint\
 C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\Dapper_StoredProcedures.pdb
 C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\Dapper_StoredProcedures.genruntimeconfig.cache
 C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\ref\Dapper_StoredProcedures.dll
-C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\bin\Debug\net9.0\appsettings.json

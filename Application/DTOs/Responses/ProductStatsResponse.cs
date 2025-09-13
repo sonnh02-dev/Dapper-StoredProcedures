@@ -1,6 +1,6 @@
 ﻿namespace Dapper_StoredProcedures.Application.DTOs.Responses
 {
-    public class ProductSummaryResponse
+    public class ProductStatsResponse
     {
         public int ProductId { get; set; }
         public string Name { get; set; } = null!;
