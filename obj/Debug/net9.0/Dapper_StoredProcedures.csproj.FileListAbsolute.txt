@@ -174,3 +174,5 @@ C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\refint\
 C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\Dapper_StoredProcedures.pdb
 C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\Dapper_StoredProcedures.genruntimeconfig.cache
 C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\obj\Debug\net9.0\ref\Dapper_StoredProcedures.dll
+C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\bin\Debug\net9.0\AutoMapper.dll
+C:\Users\admin\OneDrive\Desktop\Dapper-StoredProcedures\bin\Debug\net9.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

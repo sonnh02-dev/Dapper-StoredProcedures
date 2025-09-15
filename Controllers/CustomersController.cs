@@ -1,4 +1,5 @@
-﻿using Dapper_StoredProcedures.Application.Services.Abtractions;
+﻿using Dapper_StoredProcedures.Application.DTOs.Requests;
+using Dapper_StoredProcedures.Application.Services.Abtractions;
 using Dapper_StoredProcedures.Domain.Entities;
 using Dapper_StoredProcedures.Infrastructure.Persistence.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -15,11 +16,18 @@ namespace Dapper_StoredProcedures.Controllers
         {
             _customerService = customerService;
         }
+        [HttpPut("{customerId}")]
+        public async Task<IActionResult> Update(int customerId, [FromBody] UpdateCustomerRequest request)
+        {
+            var success = await _customerService.UpdateCustomer(customerId,request);
+            if (!success) return NotFound();
+            return NoContent();
+        }
 
         [HttpPost]
-        public async Task<IActionResult> CreateCustomer(Customer customer)
+        public async Task<IActionResult> CreateCustomer(CreateCustomerRequest request)
         {
-            var id = await _customerService.CreateCustomer(customer);
+            var id = await _customerService.CreateCustomer(request);
             return Ok(new { Id = id });
         } 
         [HttpGet("stats")]

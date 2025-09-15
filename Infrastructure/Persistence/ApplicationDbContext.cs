@@ -20,9 +20,9 @@ public class ApplicationDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
+        //---------------------------Product Config-----------------------------
         modelBuilder.Entity<Product>()
-            .HasOne<Category>()
+            .HasOne(p => p.Category)
             .WithMany()
             .HasForeignKey(p => p.CategoryId);
 
@@ -37,6 +37,17 @@ public class ApplicationDbContext : DbContext
             .HasIndex(p => new { p.CategoryId, p.Name, }).IsUnique();
 
 
+        //--------------------------Order Config----------------------------------------------
+        modelBuilder.Entity<Order>()
+       // Tạo nonclustered index trên 2 cột CustomerId + OrderDate (key columns)
+       .HasIndex(o => new { o.CustomerId, o.OrderDate })
+
+       // Thêm cột TotalAmount vào index (included column)
+       // => Khi query có điều kiện lọc theo CustomerId + OrderDate
+       //    và cần lấy thêm TotalAmount, SQL Server chỉ đọc index
+       //    mà không cần quay lại bảng gốc (lookup) => truy vấn nhanh hơn
+       .IncludeProperties(o => new { o.TotalAmount });
+
 
         modelBuilder.Entity<Order>()
             .HasOne<Customer>()
@@ -46,6 +57,9 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<Order>()
           .Property(o => o.TotalAmount)
           .HasPrecision(18, 2);
+        //----------------------------OrderItem Config--------------------------------------------
+
+
 
         modelBuilder.Entity<OrderItem>()
             .HasKey(oi => new { oi.OrderId, oi.ProductId });
@@ -60,13 +74,19 @@ public class ApplicationDbContext : DbContext
             .WithMany()
             .HasForeignKey(oi => oi.ProductId);
 
+        //-------------------------------Payment Config-----------------------------------------
+
         modelBuilder.Entity<Payment>()
             .HasKey(p => p.OrderId);
+
+        modelBuilder.Entity<Payment>()
+         .HasIndex(p => new { p.Status, p.OrderId });
+
         modelBuilder.Entity<Payment>()
           .HasOne<Order>()
           .WithOne()
           .HasForeignKey<Payment>(p => p.OrderId);
-
+        //-------------------------------------Seed Data----------------------------------------
         modelBuilder.Entity<Category>().HasData(
             new Category { Id = 1, Name = "Electronics" },
             new Category { Id = 2, Name = "Books" },

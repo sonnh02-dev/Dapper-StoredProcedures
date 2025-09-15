@@ -8,8 +8,29 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "customer",
-        "Type": "Dapper_StoredProcedures.Domain.Entities.Customer",
+        "Name": "request",
+        "Type": "Dapper_StoredProcedures.Application.DTOs.Requests.CreateCustomerRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Dapper_StoredProcedures.Controllers.CustomerController",
+    "Method": "Update",
+    "RelativePath": "api/Customer/{customerId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customerId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Dapper_StoredProcedures.Application.DTOs.Requests.UpdateCustomerRequest",
         "IsRequired": true
       }
     ],

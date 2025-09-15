@@ -10,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Controllers
 builder.Services.AddControllers();
+builder.Services.AddAutoMapper(typeof(Program));
 
 // Swagger
 builder.Services.AddEndpointsApiExplorer();
